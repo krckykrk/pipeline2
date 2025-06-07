@@ -5,8 +5,7 @@ pipeline {
         stage('build') {
             steps {
             echo 'building...'
-            sh 'pwd'
-            sh 'ls -ltr'
+            echo 'webhoook concept in jenkins'
             }   
         }
         stage('test') {
