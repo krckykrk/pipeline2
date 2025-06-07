@@ -1,6 +1,6 @@
 pipeline {
     agent { node { label 'AGENT-1' } }
-    
+
     stages {
         stage('build') {
             steps {
@@ -18,5 +18,15 @@ pipeline {
             }
         }
     }
-
+         post {
+            always {
+                echo 'i will always run whether the job is success or not'
+            }
+            success {
+                echo 'i will run always when the job is success'
+            }
+            failure {
+                echo 'i will run when the job fails'
+            }
+         }
 }
