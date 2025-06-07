@@ -4,7 +4,19 @@ pipeline {
         stage('hello'){
             steps{
                 echo 'hello world'
+                error 'fails'
             }
         }
     }
+     post {
+            always {
+                echo 'i will always run whether the job is success or not'
+            }
+            success {
+                echo 'i will run always when the job is success'
+            }
+            failure {
+                echo 'i will run when the job fails'
+            }
+         }
 }
